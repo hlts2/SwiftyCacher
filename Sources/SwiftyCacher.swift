@@ -7,7 +7,6 @@ open class SwiftyCacher {
     
     open static let instance = SwiftyCacher()
     
-    
     open func get(key: String) -> (value: Any?, Bool) {
         
         let (v, ok) = storage.read(name: key)
