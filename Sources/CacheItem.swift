@@ -14,8 +14,8 @@ open class CacheItem: NSObject, NSCoding {
     //Deselialize
     required public init?(coder aDecoder: NSCoder) {
         guard let key        = aDecoder.decodeObject(forKey: "key") as? String,
-            let object     = aDecoder.decodeObject(forKey: "object"),
-            let expiration = aDecoder.decodeObject(forKey: "expiration") as? Date else {
+              let object     = aDecoder.decodeObject(forKey: "object"),
+              let expiration = aDecoder.decodeObject(forKey: "expiration") as? Date else {
                 return nil
         }
         
