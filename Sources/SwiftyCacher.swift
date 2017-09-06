@@ -33,6 +33,12 @@ open class SwiftyCacher {
     
     open func getAll() -> [String: Any] {
         let dicts = storage.all().reduce([String: Any]()) { (result, item) in
+        
+            let ok = deleteIfExpired(key: item.key)
+            if ok {
+                return result
+            }
+            
             var result = result
             result[item.key] = item.object
             return result
@@ -57,14 +63,16 @@ open class SwiftyCacher {
         return row
     }
     
-    open func deleteIfExpired(key: String) {
+    open func deleteIfExpired(key: String) -> Bool {
         let (v, ok) = storage.read(name: key)
         
         if ok {
             if v!.expiration.isVaild() {
-                let _ = storage.delete(name: v!.key)
+                return storage.delete(name: v!.key)
             }
         }
+        
+        return false
     }
     
     open func deleteAll() {
