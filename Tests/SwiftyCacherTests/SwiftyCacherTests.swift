@@ -7,7 +7,7 @@ class SwiftyCacherTests: XCTestCase {
         let cache = SwiftyCacher.instance
         
         for i in 0...100 {
-            cache.setWithExpire(key: i.description, value: i, expiration: Date())
+            let _ = cache.setWithExpire(key: i.description, value: i, expiration: Date())
         }
     }
     
@@ -39,7 +39,7 @@ class SwiftyCacherTests: XCTestCase {
 
     func testDeleteIfExpiredCache() {
         let cache = SwiftyCacher.instance
-        cache.deleteIfExpired(key: "9")
+        let _ = cache.deleteIfExpired(key: "9")
     }
 
     func testDeleteAllCache() {

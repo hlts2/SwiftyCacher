@@ -23,12 +23,12 @@ open class SwiftyCacher {
         return (v!.object, ok)
     }
     
-    open func setWithExpire(key: String, value: Any, expiration: Date) {
+    open func setWithExpire(key: String, value: Any, expiration: Date) -> Bool {
         
-        let _ = storage.write(name: key, value: CacheItem(
-                                                    key       : key,
-                                                    object    : value,
-                                                    expiration: expiration))
+        return storage.write(name: key, value: CacheItem(
+                                                  key       : key,
+                                                  object    : value,
+                                                  expiration: expiration))
     }
     
     open func getAll() -> [String: Any] {

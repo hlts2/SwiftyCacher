@@ -16,7 +16,8 @@ import SwiftyCacher
 let cache = SwiftyCacher.instance
 
 //Set Cache
-cache.setWithExpire(key: "cache_key", value: 1234, expiration: Date())
+let ok = cache.setWithExpire(key: "cache_key", value: 1234, expiration: Date())
+print(ok) // true or false
 
 //Get Cache value
 let (v, ok) = cache.get(key: "cache_key")
