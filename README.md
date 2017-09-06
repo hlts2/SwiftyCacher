@@ -36,7 +36,8 @@ print(ok) // true or false
 cache.deleteExpired()
 
 //If this cache key expires, delete the cache
-cache.deleteIfExpired(key: "cache_key")
+let ok = cache.deleteIfExpired(key: "cache_key")
+print(ok) // true or false
 
 //Delete all Cache
 cache.deleteAll()
