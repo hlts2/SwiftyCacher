@@ -36,7 +36,7 @@ open class SwiftyCacher {
         
             let ok = deleteIfExpired(key: item.key)
             if ok {
-                return result
+                return [String: Any]()
             }
             
             var result = result
