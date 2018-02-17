@@ -1,5 +1,5 @@
 # SwiftyCacher
-SwiftyCacher is simple cache library for swift
+SwiftyCacher is simple file-based caching library for swift
 
 ## Example
 
